@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    get_post
   end
 
   def create
@@ -21,15 +22,20 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    get_post
     @post.destroy
     redirect_to action: 'index'
   end
 
   def update
+    get_post
   end
 
   def show
+  end
+
+  def get_post
+    @post = Post.find(params[:id])
   end
 
 private

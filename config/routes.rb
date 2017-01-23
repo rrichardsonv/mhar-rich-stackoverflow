@@ -1,5 +1,32 @@
 Rails.application.routes.draw do
-  resources :posts
+
+  get 'comments/new'
+
+  get 'comments/create'
+
+  get 'comments/edit'
+
+  get 'comments/update'
+
+  get 'comments/destroy'
+
+  get 'answers/new'
+
+  get 'answers/create'
+
+  get 'answers/edit'
+
+  get 'answers/update'
+
+  get 'answers/destroy'
+
+  resources :posts do
+    resources :comments
+    resources :answers, except: [:index,:show] do
+      resource :comments, except: [:index, :show]
+    end
+  end
+
   root 'posts#index'
 
   get 'signup', to: 'users#new'
