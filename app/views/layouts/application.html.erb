@@ -7,6 +7,33 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="nav-bar">
+      <table>
+        <tr>
+            <td class="nav-link">
+              <% if logged_in %>
+              <%= link_to("Profile", profile_path(current_user.id))%>
+              <%= link_to 'New Post', new_post_path %>
+              <% else %>
+              <%= link_to("Register", signup_path)%>
+              <% end %>
+            </td>
+
+            <td class="nav-link">
+              <%= link_to "Home", root_path %>
+            </td>
+
+            <td class="nav-link">
+              <% if logged_in %>
+              <%= button_to("Logout", logout_path, method: :delete)  %>
+              <% else %>
+              <%= link_to("Sign-in", signin_path )%>
+              <% end %>
+            </td>
+
+        </tr>
+      </table>
+    </nav>
 
 <%= yield %>
 
