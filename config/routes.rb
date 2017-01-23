@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   get 'signup', to: 'users#new'
-  post 'register', to: 'users#create'
+  post 'signup', to: 'users#create'
 
   get 'profile', to: 'users#show'
   get 'profile/edit', to: 'user#edit'
