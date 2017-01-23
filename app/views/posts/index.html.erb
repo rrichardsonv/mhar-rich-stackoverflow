@@ -1,2 +1,27 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class='container'>
+      <table>
+      <%@posts.each do |post|%>
+        <tr>
+          <td>
+            <div>0</div>
+            <span>votes</span>
+          </td>
+          <td>
+            <div>0</div>
+            <span>comments</span>
+          </td>
+          <td>
+            <div>0</div>
+          <span>answers</span>
+          </td>
+
+          <td>
+            <h2>
+            <%= post.question %>
+            </h2>
+          </td>
+        </tr>
+      <% end %>
+      </table>
+</div>
+
